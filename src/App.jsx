@@ -110,6 +110,7 @@ function App() {
       </DiaryDispatchContext.Provider>
     </DiaryStateContext.Provider>
   )
+  
 }
 
 export default App

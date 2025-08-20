@@ -3,52 +3,52 @@ import Header from '../components/Header'
 import Button from '../components/Button'
 import DiaryList from '../components/DiaryList'
 import { DiaryStateContext } from '../App'
-
 const Home = () => {
+
   const data = useContext(DiaryStateContext)
 
-  const [pivoteDate, setPivotDate] = useState(new Date())
 
-  const getMonthlyData = (pivoteDate, data) => {
+  const [pivotDate, setPivotDate] = useState(new Date())
+
+
+
+  const getMonthlyData = (pivotDate, data) => {
+
     const beginTime = new Date(
-      pivoteDate.getFullYear(),
-      pivoteDate.getMonth(),
+      pivotDate.getFullYear(),
+      pivotDate.getMonth(),
       1,
       0, 0, 0
     ).getTime()
-
     const endTime = new Date(
-      pivoteDate.getFullYear(),
-      pivoteDate.getMonth(),
-      1,
+      pivotDate.getFullYear(),
+      pivotDate.getMonth() + 1,
+      0,
       23, 59, 59
     ).getTime()
 
     return data.filter(
-      (item)=>beginTime <=item.createdDate && item.createdDate<=endTime
+      (item) => beginTime <= item.createdDate && item.createdDate <= endTime
     )
   }
 
-  const monthlyData = getMonthlyData(pivoteDate,data)
 
+  const monthlyData = getMonthlyData(pivotDate,data)
   const onIncreamentMonth = () => {
     setPivotDate(
-      new Date(pivoteDate.getFullYear(), pivoteDate.getMonth() + 1)
+      new Date(pivotDate.getFullYear(), pivotDate.getMonth() + 1)
     )
   }
-
   const onDecreamentMonth = () => {
     setPivotDate(
-      new Date(pivoteDate.getFullYear(), pivoteDate.getMonth() - 1)
+      new Date(pivotDate.getFullYear(), pivotDate.getMonth() - 1)
     )
   }
-
-
   return (
     <div>
       <Header
         leftChild={<Button text={"<"} onClick={onDecreamentMonth} />}
-        title={`${pivoteDate.getFullYear()}년   ${pivoteDate.getMonth() + 1}월`}
+        title={`${pivotDate.getFullYear()}년 ${pivotDate.getMonth() + 1}월`}
         rightChild={<Button text={">"} onClick={onIncreamentMonth} />}
       />
       <DiaryList data={monthlyData} />
