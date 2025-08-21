@@ -1,0 +1,16 @@
+.mode-toggle {
+    font-size: 3rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s ease;
+}
+
+.mode-toggle:hover {
+    transform: scale(1.1);
+
+}
+
+.mode-toggle:active {
+    transform: scale(0.95);
+
+}

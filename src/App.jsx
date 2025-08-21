@@ -104,10 +104,9 @@ function App() {
 
         <DiaryStateContext.Provider value={data}>
           <DiaryDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
-            <select value={mode} onChange={(e) => setMode(e.target.value)}>
-              <option value="light">🌞</option>
-              <option value="dark">🌙</option>
-            </select>
+            <span className="mode-toggle" onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}>
+              {mode === 'light' ? '🌞' : '🌜'}
+            </span>
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/new' element={<New />} />
