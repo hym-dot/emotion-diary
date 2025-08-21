@@ -3,7 +3,7 @@
     align-items: center;
     gap: 15px;
     padding: 15px 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #eee;
 }
 
 .img-section {
@@ -13,27 +13,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-}
-
-.img-section img {
-    width: 50%;
-}
-
-.DiaryItem {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 0;
-    border-bottom: 1px solid black;
-}
-
-.img-section {
-    min-width: 120px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
+    cursor: pointer;
 }
 
 .img-section img {
@@ -59,17 +39,14 @@
 .img-section.bg-5 {
     background-color: rgb(253, 86, 95);
 }
-
-.info-section {
+.info-section{
     flex: 1;
     cursor: pointer;
 }
-
-.info-section .content {
+.info-section .content{
     font-size: 18px;
 }
-
-.info-section .created-date {
+.info-section .created-date{
     font-size: 25px;
     font-weight: bold;
 }
